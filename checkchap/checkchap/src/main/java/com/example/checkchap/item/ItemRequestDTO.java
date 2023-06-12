@@ -1,4 +1,6 @@
 package com.example.checkchap.item;
 
-public record ItemRequestDTO(Long id_tarefa,String nome, int situacao) {
+import com.example.checkchap.tarefa.Tarefa;
+
+public record ItemRequestDTO(Tarefa id_tarefa, String nome, int situacao) {
 }

@@ -1,5 +1,6 @@
 package com.example.checkchap.tarefa;
 
+import com.example.checkchap.url.Url;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -17,9 +18,18 @@ public class Tarefa {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @OneToOne
+    @JoinColumn(name = "id_url")
+    private Url url;
+
     private String titulo;
 
-    public Tarefa(TarefaRequestDTO data){
+    public Tarefa(Long id) {
+        this.id = id;
+    }
+
+    public Tarefa(TarefaRequestDTO data) {
+        this.url = data.id_url();
         this.titulo = data.titulo();
     }
 }

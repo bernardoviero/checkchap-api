@@ -8,8 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Random;
-
 @Controller
 @RequestMapping("/urls")
 public class UrlController {
@@ -18,9 +16,13 @@ public class UrlController {
 
     @PostMapping
     @ResponseBody
-    public Url saveUrl(@RequestBody Url url) {
-        urlRepository.save(url);
-        return url;
+    public String saveUrl(@RequestBody Url url) {
+        try{
+            urlRepository.save(url);
+            return "success";
+        }catch(Exception e){
+            return "Erro: " + e;
+        }
     }
 
     @GetMapping("/{url}")

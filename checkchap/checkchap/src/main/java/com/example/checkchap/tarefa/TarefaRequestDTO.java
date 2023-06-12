@@ -1,4 +1,6 @@
 package com.example.checkchap.tarefa;
 
-public record TarefaRequestDTO(String titulo) {
+import com.example.checkchap.url.Url;
+
+public record TarefaRequestDTO(Url id_url, String titulo) {
 }
