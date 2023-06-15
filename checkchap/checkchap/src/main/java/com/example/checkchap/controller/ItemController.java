@@ -43,4 +43,12 @@ public class ItemController {
 
         return novoItem;
     }
+
+    @DeleteMapping("{id_item}")
+    public Item deleteItem(@PathVariable(value = "id_item") Long id_item){
+        Item itemDeletado = repository.findItem(id_item);
+        repository.deleteById(id_item);
+
+        return itemDeletado;
+    }
 }
