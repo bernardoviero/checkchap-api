@@ -26,4 +26,21 @@ public class ItemController {
     public List<Item> getItensById(@PathVariable(value = "id_tarefa") long id_tarefa){
         return repository.getItensByTarefaId(id_tarefa);
     }
+
+    @PutMapping("nome/{id_item}/{nome}")
+    public Item updateNomeItem(@PathVariable(value = "id_item") Long id_item, @PathVariable(value = "nome") String nome){
+        Item novoItem = repository.findItem(id_item);
+        novoItem.setNome(nome);
+        repository.save(novoItem);
+        return novoItem;
+    }
+
+    @PutMapping("situacao/{id_item}/{situacao}")
+    public Item updateSituacaoItem(@PathVariable(value = "id_item") Long id_item, @PathVariable(value = "situacao") int situacao){
+        Item novoItem = repository.findItem(id_item);
+        novoItem.setSituacao(situacao);
+        repository.save(novoItem);
+
+        return novoItem;
+    }
 }

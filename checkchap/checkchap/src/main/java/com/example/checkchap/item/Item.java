@@ -2,14 +2,12 @@ package com.example.checkchap.item;
 
 import com.example.checkchap.tarefa.Tarefa;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Table(name = "Itens")
 @Entity(name = "Itens")
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
