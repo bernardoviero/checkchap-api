@@ -28,4 +28,21 @@ public class TarefaController {
 
         return tarefa;
     }
+
+    @PutMapping("/{id_tarefa}/{titulo}")
+    public Tarefa updateTituloTarefa(@PathVariable(value = "id_tarefa") Long id_tarefa, @PathVariable(value = "titulo") String titulo){
+        Tarefa tarefa = repository.findTarefa(id_tarefa);
+        tarefa.setTitulo(titulo);
+        repository.save(tarefa);
+
+        return tarefa;
+    }
+
+    @DeleteMapping("{id_tarefa}")
+    public Tarefa deleteTarefa(@PathVariable(value = "id_tarefa") Long id_tarefa){
+        Tarefa tarefaDelatada = repository.findTarefa(id_tarefa);
+        repository.deleteById(id_tarefa);
+
+        return tarefaDelatada;
+    }
 }

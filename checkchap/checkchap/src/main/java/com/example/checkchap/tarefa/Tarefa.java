@@ -2,14 +2,12 @@ package com.example.checkchap.tarefa;
 
 import com.example.checkchap.url.Url;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Table(name = "tarefas")
 @Entity(name = "tarefas")
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
