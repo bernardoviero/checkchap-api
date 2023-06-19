@@ -4,6 +4,8 @@ Api para a implementação de uma Plataforma Intuitiva e Ágil para Criação e 
 
 ## API Reference
 
+* Obs: Os métodos GET/PUT/DELETE passa seus parâmetros por meio do HEADER já o método POST passa parâmetros pelo BODY
+
 #### Criar url
 
 ```http
@@ -33,6 +35,7 @@ Api para a implementação de uma Plataforma Intuitiva e Ágil para Criação e 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `titulo`      | `string` | Nome de sua tarefa |
+| `idUrl`      | `int` | Id da URL relacionada |
 
 #### Visualizar uma tarefa
 
@@ -73,7 +76,9 @@ Api para a implementação de uma Plataforma Intuitiva e Ágil para Criação e 
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `nome`      | `string` | Nome do item
+| `nome`      | `string` | Nome do item |
+| `idTarefa`      | `int` | Id da tarefa relacionada |
+| `situacao`      | `bool` | Padrão 0 -> Á fazer |
 
 #### Visualizar um item
 
