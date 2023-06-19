@@ -1,132 +1,115 @@
-# checkchap-api
-Plataforma Intuitiva e Ágil para Criação e Compartilhamento de Listas de Tarefas Online - Projeto final das disciplinas de Engenharia de Software e Projeto de Software 
 
-## Documentação para consumir a API
+## API Reference
 
-### URL
+#### Criar url
 
-* Criar uma URL: 
+```http
+  POST /
+```
 
-Url: localhost:8080/ 
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `url` | `string` | O nome da sua rota |
 
-Metodo: POST 
+#### Visualizar url
 
-Body: “url” => valor
+```http
+  GET /{id}
+```
 
-Retorno: a própria URL com id, url e data de criação. 
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `int` | Id da URL |
 
+#### Criar tarefa
 
-* Acessar uma URL: 
+```http
+  POST /tarefa
+```
 
-Url: localhost:8080/
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `titulo`      | `string` | Nome de sua tarefa |
 
-Metodo:GET 
+#### Visualizar uma tarefa
 
-Header: idUrl 
+```http
+  GET /tarefa/{idUrl}
+```
 
-Retorno: o nome da url.
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `idUrl`      | `int` | Id de url a qual sua tarefa está relacionada |
 
+#### Editar uma tarefa
 
+```http
+  GET /tarefa/{idTarefa}/{nome}
+```
 
-### TAREFA
-* Criar uma TAREFA: 
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `idTarefa`      | `int` | Id de tarefa |
+| `nome`      | `string` | Novo nome da tarefa |
 
-Url: localhost:8080/tarefa
+#### Excluir uma tarefa
 
-Metodo: POST 
+```http
+  DELETE /tarefa/{idTarefa}
+```
 
-Body: “titulo” => valor, “id_url” => valor
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `idTarefa`      | `int` | Id de tarefa para exclusão |
 
-Retorno: a própria tarefa com id, id_url e titulo. 
+#### Criar um item
 
+```http
+  POST /item
+```
 
-* Acessar uma TAREFA: 
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `nome`      | `string` | Nome do item
 
-Url: localhost:8080/ 
+#### Visualizar um item
 
-Metodo: GET 
+```http
+  GET /item/{idTarefa}
+```
 
-header: - tarefa/{idUrl} 
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `idTarefa`      | `int` | Id da tarefa a qual os itens estão relacionados
 
-Retorno: o titulo da tarefa e seu id. 
+#### Editar a situação de um item
 
+```http
+  PUT /item/situacao/{idItem}/{situacao}
+```
 
-* Editar titulo de uma TAREFA: 
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `idItem`      | `int` | Id do item a ser atualizado|
+| `situacao`      | `bool` | Situação do item (1) -> concluído. (0) -> A fazer|
 
-Url: localhost:8080/ 
+#### Editar o nome de um item
 
-Metodo: PUT 
+```http
+  PUT /item/nome/{idItem}/{nome}
+```
 
-header: tarefa/{id_tarefa}/novotitulo 
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `idItem`      | `int` | Id do item |
+| `nome`      | `string` | Novo nome do item |
 
-Retorno: a própria tarefa
+#### Excluir um item
 
+```http
+  DELETE /item/{idItem}
+```
 
-* Deletar uma TAREFA: 
-
-Url: localhost:8080/ 
-
-Metodo: DELETE 
-
-header: tarefa/{id_tarefa} 
-
-Retorno: a própria tarefa
-
-
-
-### ITEM
-* Criar um ITEM: 
-
-Url: localhost:8080/item
-
-Metodo: POST 
-
-Body: “id_tarefa” => valor, “nome” => valor, “situacao” => valor
-
-Retorno: o item com id, nome e situacao. 
-
-
-* Acessar ITENS: 
-
-Url: localhost:8080/
-
-Metodo: GET
-
-header: item/{idTarefa} 
-
-Retorno: array de item e seus relacionamentos 
-
-
-* Editar o nome de um ITEM
-
-Url: localhost:8080/item
-
-Metodo: PUT
-
-header: nome/id_item/novonome
-
-Retorno: o 'novo' item
-
-
-* Editar a situação de um ITEM
-
-Url: localhost:8080/item
-
-Metodo: PUT
-
-header: situacao/id_item/situacao (1 / 0)
-
-Retorno: o 'novo' item
-
-
-* Deletar um ITEM
-
-Url: localhost:8080/item
-
-Metodo: DELETE
-
-header: id_item
-
-Retorno: o item
-
-
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `idItem`      | `int` | Id do item para exclusão |
