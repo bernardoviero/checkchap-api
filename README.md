@@ -4,7 +4,7 @@ Api para a implementação de uma Plataforma Intuitiva e Ágil para Criação e 
 
 ## API Reference
 
-* Obs: Os métodos GET/PUT/DELETE passa seus parâmetros por meio do HEADER já o método POST passa parâmetros pelo BODY
+* Obs: Os métodos GET/PUT/DELETE passam seus parâmetros por meio do HEADER já o método POST passa parâmetros pelo BODY
 
 #### Criar url
 
