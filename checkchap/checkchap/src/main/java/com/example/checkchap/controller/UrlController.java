@@ -32,7 +32,7 @@ public class UrlController {
         Url urlRedirect = urlRepository.findLatestByUrl(url);
 
         if (urlRedirect != null) {
-            UrlResponseDTO responseDto = new UrlResponseDTO(urlRedirect.getUrl());
+            UrlResponseDTO responseDto = new UrlResponseDTO(urlRedirect.getUrl(), urlRedirect.getId());
             return ResponseEntity.ok(responseDto);
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
